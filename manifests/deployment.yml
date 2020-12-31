@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: dotnettest 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dotnettest
+  template:
+    metadata:
+      labels:
+        app: dotnettest 
+    spec:
+      containers:
+        - name: dotnettest 
+          image: mccreeshtestregistry.azurecr.io/dotnettest
+          ports:
+          - containerPort: 80
